@@ -62,3 +62,43 @@ Formulario de reservas (paginas/reservas.html)
   de un conjunto fijo de bicicletas disponibles.
 - El horario usa botones de opción con el mismo name porque mañana y tarde son
   alternativas mutuamente excluyentes; el cliente selecciona una sola.
+
+Validación nativa del formulario (navegador integrado)
+
+| Campo | Dato de prueba | Resultado esperado | Resultado obtenido |
+|---|---|---|---|
+| Nombre completo | Vacío | Rechazo: obligatorio | Rechazado por validación nativa |
+| Nombre completo | `Al` | Rechazo: menos de 3 caracteres | Rechazado por validación nativa |
+| Documento | Vacío | Rechazo: obligatorio | Rechazado por validación nativa |
+| Documento | `12ab5678` | Rechazo: solo números | Rechazado por validación nativa |
+| Documento | `12345` | Rechazo: menos de 6 dígitos | Rechazado por validación nativa |
+| Documento | `12345678901` | Rechazo: más de 10 dígitos | Rechazado por validación nativa |
+| Correo | Vacío | Rechazo: obligatorio | Rechazado por validación nativa |
+| Correo | `ana-no-valido` | Rechazo: formato de correo inválido | Rechazado por validación nativa |
+| Celular | Vacío | Rechazo: obligatorio | Rechazado por validación nativa |
+| Celular | `2123456789` | Rechazo: no empieza por 3 | Rechazado por validación nativa |
+| Celular | `312345678` | Rechazo: menos de 10 dígitos | Rechazado por validación nativa |
+| Celular | `31234567890` | Rechazo: más de 10 dígitos | Rechazado por validación nativa |
+| Fecha del alquiler | Vacía | Rechazo: obligatoria | Rechazado por validación nativa |
+| Fecha del alquiler | `2026-10-31` | Rechazo: anterior al 1/11/2026 | Rechazado por validación nativa |
+| Fecha del alquiler | `2027-01-01` | Rechazo: posterior al 31/12/2026 | Rechazado por validación nativa |
+| Tipo de bicicleta | Sin selección | Rechazo: obligatorio | Rechazado por validación nativa |
+| Plan | Sin selección | Rechazo: obligatorio | Rechazado por validación nativa |
+| Cantidad de bicicletas | Vacía | Rechazo: obligatoria | Rechazado por validación nativa |
+| Cantidad de bicicletas | `0` | Rechazo: menor que 1 | Rechazado por validación nativa |
+| Cantidad de bicicletas | `7` | Rechazo: mayor que 6 | Rechazado por validación nativa |
+| Cantidad de bicicletas | `1.5` | Rechazo: no es entero | Rechazado por validación nativa |
+| Políticas de alquiler | Casilla sin marcar | Rechazo: aceptación obligatoria | Rechazado por validación nativa |
+| Comentarios | 301 caracteres escritos | Limitar el campo a 300 caracteres | Se conservan 300; el campo opcional sigue válido |
+
+También se comprobó que los límites permitidos son inclusivos: documento de 6
+y 10 dígitos, fechas 1/11/2026 y 31/12/2026, cantidades 1 y 6, y comentarios
+de 300 caracteres fueron aceptados.
+
+Prueba de teclado en Firefox:
+- El foco recorre los controles en el orden visual del formulario; Shift+Tab
+  desde el nombre vuelve al enlace de navegación anterior.
+- Se completó una reserva usando Tab, flechas para seleccionar bicicleta, plan
+  y horario, barra espaciadora para aceptar las políticas y Enter para enviar.
+- Resultado: el evento de envío se produjo con los datos válidos. El comentario
+  vacío no impidió el envío. No se encontraron saltos de foco ilógicos.

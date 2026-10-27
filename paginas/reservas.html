@@ -23,16 +23,30 @@
                     <legend>Tus datos</legend>
                     <p>
                         <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" minlength="3" required>
+                    </p>
+                    <p>
+                        <label for="documento">Documento:</label>
+                        <input type="text" id="documento" name="documento" inputmode="numeric" pattern="[0-9]{6,10}" aria-describedby="ayuda-documento" title="Ingresa solo números: entre 6 y 10 dígitos." required>
+                        <small id="ayuda-documento">Solo números, entre 6 y 10 dígitos.</small>
                     </p>
                     <p>
                         <label for="correo">Correo electrónico:</label>
                         <input type="email" id="correo" name="correo" autocomplete="email" required>
                     </p>
+                    <p>
+                        <label for="celular">Celular:</label>
+                        <input type="tel" id="celular" name="celular" autocomplete="tel" inputmode="numeric" pattern="3[0-9]{9}" aria-describedby="ayuda-celular" title="Ingresa 10 dígitos y comienza por 3." required>
+                        <small id="ayuda-celular">10 dígitos, debe empezar por 3.</small>
+                    </p>
                 </fieldset>
 
                 <fieldset>
                     <legend>Tu alquiler</legend>
+                    <p>
+                        <label for="fecha">Fecha del alquiler:</label>
+                        <input type="date" id="fecha" name="fecha" min="2026-11-01" max="2026-12-31" required>
+                    </p>
                     <p>
                         <label for="bicicleta">Tipo de bicicleta:</label>
                         <select id="bicicleta" name="bicicleta" required>
@@ -43,29 +57,40 @@
                         </select>
                     </p>
                     <p>
-                        <label for="fecha">Fecha de reserva:</label>
-                        <input type="date" id="fecha" name="fecha" required>
+                        <label for="plan">Plan:</label>
+                        <select id="plan" name="plan" required>
+                            <option value="">Selecciona un plan</option>
+                            <option value="una-hora">1 hora</option>
+                            <option value="medio-dia">Medio día (4 horas)</option>
+                            <option value="dia-completo">Día completo</option>
+                        </select>
                     </p>
-                    <p>Horario preferido:</p>
                     <p>
-                        <input type="radio" id="horario-manana" name="horario" value="manana" required>
-                        <label for="horario-manana">Mañana</label>
+                        <label for="cantidad">Cantidad de bicicletas:</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="6" step="1" required>
                     </p>
-                    <p>
-                        <input type="radio" id="horario-tarde" name="horario" value="tarde">
-                        <label for="horario-tarde">Tarde</label>
-                    </p>
+                    <fieldset>
+                        <legend>Horario preferido</legend>
+                        <p>
+                            <input type="radio" id="horario-manana" name="horario" value="manana" required>
+                            <label for="horario-manana">Mañana</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="horario-tarde" name="horario" value="tarde">
+                            <label for="horario-tarde">Tarde</label>
+                        </p>
+                    </fieldset>
                 </fieldset>
 
                 <fieldset>
                     <legend>Confirmación</legend>
                     <p>
                         <label for="comentarios">Comentarios adicionales:</label>
-                        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                        <textarea id="comentarios" name="comentarios" rows="4" maxlength="300"></textarea>
                     </p>
                     <p>
-                        <input type="checkbox" id="confirmacion" name="confirmacion" value="datos-correctos" required>
-                        <label for="confirmacion">Confirmo que los datos de la reserva son correctos.</label>
+                        <input type="checkbox" id="politicas" name="politicas" value="aceptadas" required>
+                        <label for="politicas">Acepto las políticas de alquiler.</label>
                     </p>
                 </fieldset>
 
