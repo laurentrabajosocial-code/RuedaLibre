@@ -18,49 +18,56 @@
         <section>
             <h1>Formulario de reserva</h1>
 
-            <form action="#" method="get">
-                <p>
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre"
-                           required>
-                </p>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Tus datos</legend>
+                    <p>
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                    </p>
+                    <p>
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" autocomplete="email" required>
+                    </p>
+                </fieldset>
 
-                <p>
-                    <label for="correo">Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo"
-                           required>
-                </p>
+                <fieldset>
+                    <legend>Tu alquiler</legend>
+                    <p>
+                        <label for="bicicleta">Tipo de bicicleta:</label>
+                        <select id="bicicleta" name="bicicleta" required>
+                            <option value="">Selecciona una bicicleta</option>
+                            <option value="urbana">Bicicleta urbana</option>
+                            <option value="montana">Bicicleta de montaña</option>
+                            <option value="electrica">Bicicleta eléctrica</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="fecha">Fecha de reserva:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </p>
+                    <p>Horario preferido:</p>
+                    <p>
+                        <input type="radio" id="horario-manana" name="horario" value="manana" required>
+                        <label for="horario-manana">Mañana</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="horario-tarde" name="horario" value="tarde">
+                        <label for="horario-tarde">Tarde</label>
+                    </p>
+                </fieldset>
 
-                <p>
-                    <label for="bicicleta">Tipo de bicicleta:</label>
-                    <select id="bicicleta" name="bicicleta" required>
-                        <option value="">Selecciona una bicicleta</option>
-                        <option value="urbana">Bicicleta urbana</option>
-                        <option value="montana">Bicicleta de montaña</option>
-                        <option value="electrica">Bicicleta eléctrica</option>
-                    </select>
-                </p>
-
-                <p>
-                    <label for="fecha">Fecha de reserva:</label>
-                    <input type="date" id="fecha" name="fecha"
-                           required>
-                </p>
-
-                <p>
-                    <label for="horario">Horario preferido:</label>
-                    <select id="horario" name="horario" required>
-                        <option value="">Selecciona un horario</option>
-                        <option value="manana">Mañana</option>
-                        <option value="tarde">Tarde</option>
-                    </select>
-                </p>
-
-                <p>
-                    <label for="comentarios">Comentarios adicionales:</label>
-                    <textarea id="comentarios" name="comentarios"
-                              rows="4"></textarea>
-                </p>
+                <fieldset>
+                    <legend>Confirmación</legend>
+                    <p>
+                        <label for="comentarios">Comentarios adicionales:</label>
+                        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="confirmacion" name="confirmacion" value="datos-correctos" required>
+                        <label for="confirmacion">Confirmo que los datos de la reserva son correctos.</label>
+                    </p>
+                </fieldset>
 
                 <button type="submit">Enviar reserva</button>
             </form>

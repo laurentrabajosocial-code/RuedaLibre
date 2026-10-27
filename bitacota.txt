@@ -52,3 +52,13 @@ Verificación:
 - Cada página contiene un único main, además de header, nav principal y footer.
 - Se conserva la secuencia y el nivel de los encabezados de cada página.
 - Los enlaces internos, fragmentos y recursos locales apuntan a destinos existentes.
+
+Formulario de reservas (paginas/reservas.html)
+- El formulario usa POST y agrupa los controles en los fieldset Tus datos,
+  Tu alquiler y Confirmación. Cada control tiene una etiqueta visible asociada
+  y un atributo name para incluir su valor en el envío.
+- El correo usa input type="email" para validar el formato propio de una dirección.
+- El tipo de bicicleta usa un select porque la persona debe escoger una opción
+  de un conjunto fijo de bicicletas disponibles.
+- El horario usa botones de opción con el mismo name porque mañana y tarde son
+  alternativas mutuamente excluyentes; el cliente selecciona una sola.
