@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
 
-    <a href="index.html">Volver al inicio</a>
 </head>
 <body>
+    <header>
+        <strong>Rueda Libre</strong>
+        <nav aria-label="Navegación principal">
+            <a href="index.html">Volver al inicio</a>
+        </nav>
+    </header>
+
     <main>
-        
-         <section>
-            <h2>Formulario de reserva</h2>
+        <section>
+            <h1>Formulario de reserva</h1>
 
             <form action="#" method="get">
                 <p>
@@ -58,15 +63,20 @@
                 </p>
 
                 <button type="submit">Enviar reserva</button>
-
-                <a href="mailto:info@ruedalibre.com" style="display: inline-block; padding: 0.5em 1em; border: 1px solid; text-decoration: none;">
-                Correo Electrónico
-            </a>
-            
             </form>
         </section>
+
+        <aside aria-label="Horario de atención">
+            <p>Al realizar la reserva, puedes elegir horario de mañana o tarde.</p>
+        </aside>
     </main>
 
-
+    <footer>
+        <address>
+            <a href="mailto:info@ruedalibre.com" style="display: inline-block; padding: 0.5em 1em; border: 1px solid; text-decoration: none;">
+                Correo Electrónico
+            </a>
+        </address>
+    </footer>
 </body>
 </html>

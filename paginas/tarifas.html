@@ -28,22 +28,18 @@
             line-height: 1.6;
         }
 
-        header {
+        body > header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
             padding: 1rem 1.5rem;
             background: var(--verde-oscuro);
             color: #fff;
         }
 
-        .barra {
-            display: flex;
-            max-width: 1080px;
-            margin: 0 auto;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        header a {
+        body > header a {
             color: #fff;
             font-weight: 600;
             text-decoration-thickness: 2px;
@@ -146,17 +142,17 @@
 <body>
     <header>
         <img src="../img/logotipo.jpeg" alt="Logo de Rueda Libre" width="200">
-        <nav class="barra" aria-label="Navegación principal">
-            <strong>Rueda Libre</strong>
+        <strong>Rueda Libre</strong>
+        <nav aria-label="Navegación principal">
             <a href="index.html">Volver al inicio</a>
         </nav>
     </header>
 
     <main>
-        <div class="introduccion">
-            <h1>Tarifas de alquiler y recorridos</h1>
+        <header class="introduccion">
+            <h1 id="titulo-tarifas">Tarifas de alquiler y recorridos</h1>
             <p>Elige tu bicicleta o encuentra tu próxima aventura guiada. Todos los precios están expresados en pesos colombianos (COP).</p>
-        </div>
+        </header>
 
         <section class="seccion" aria-labelledby="alquiler">
             <h2 id="alquiler">Alquiler de bicicletas</h2>
@@ -236,7 +232,20 @@
             </div>
         </section>
 
-        <p class="nota">Todas las tarifas incluyen casco y candado. Los recorridos salen sábados y domingos a las 7:00 a. m. Qué llevar: ropa cómoda, agua, protector solar y documento de identidad.</p>
+        <aside class="nota">
+            <p>Todas las tarifas incluyen casco y candado. Los recorridos salen sábados y domingos a las 7:00 a. m.</p>
+            <p><strong>Qué llevar:</strong></p>
+            <ul>
+                <li>Ropa cómoda</li>
+                <li>Agua</li>
+                <li>Protector solar</li>
+                <li>Documento de identidad</li>
+            </ul>
+        </aside>
     </main>
+
+    <footer>
+        <address><a href="mailto:info@ruedalibre.com">Correo Electrónico</a></address>
+    </footer>
 </body>
 </html>

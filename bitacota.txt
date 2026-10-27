@@ -5,3 +5,50 @@ CSS diseño de la pagina
 JavaScript lenguaje que traduce el comportamiento de la pagina
 se registra la petición del documento con código 200 y la ruta inexistente con código 404.
 
+Reestructuración semántica de las tres páginas
+
+Inicio (paginas/index.html)
+body
+├── header: logotipo y nombre del negocio
+│   └── nav principal: Encuéntranos, Tarifas y Recorridos
+├── main
+│   ├── section: Alquiler de bicicletas en Medellín
+│   ├── section: ¿Quiénes Somos?
+│   ├── section: Nuestros Servicios
+│   │   └── article: un artículo independiente por cada servicio
+│   ├── section: Beneficios de alquilar con nosotros
+│   └── section: ¿Cómo alquilar?
+└── footer
+    └── section: Encuéntranos, contacto y ubicación
+
+Tarifas (paginas/tarifas.html)
+body
+├── header: logotipo y nombre del negocio
+│   └── nav principal: Volver al inicio
+├── main
+│   ├── encabezado introductorio de la página
+│   ├── section: Alquiler de bicicletas y su tabla
+│   ├── section: Recorridos guiados y su tabla
+│   └── aside: inclusión de casco y candado, y lista de qué llevar
+└── footer: información de cierre de la página
+
+Reservas (paginas/reservas.html)
+body
+├── header: nombre del negocio
+│   └── nav principal: Volver al inicio
+├── main
+│   ├── section: Formulario de reserva y sus campos, incluido horario preferido
+│   └── aside: horario disponible en la reserva (mañana o tarde)
+└── footer: contacto por correo electrónico
+Nota: no se indican horas de apertura; el contenido complementario no las inventa.
+
+Justificación de contenedores sin equivalente semántico:
+- En tarifas, los dos div.tabla-contenedor se mantienen porque envuelven cada
+  tabla para habilitar desplazamiento horizontal en pantallas estrechas
+  (overflow-x: auto); no representan una región temática del documento.
+- No quedan elementos span ni otros div en las tres páginas.
+
+Verificación:
+- Cada página contiene un único main, además de header, nav principal y footer.
+- Se conserva la secuencia y el nivel de los encabezados de cada página.
+- Los enlaces internos, fragmentos y recursos locales apuntan a destinos existentes.
