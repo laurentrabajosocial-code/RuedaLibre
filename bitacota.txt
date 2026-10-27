@@ -1,0 +1,7 @@
+En el dia 1 se creo el index de la pagina inicial de RuedaLibre con su estrutura HTML semantico
+http://127.0.0.1:5500/RuedaLibre/paginas/index.html
+HTML texto de la pagina
+CSS diseño de la pagina 
+JavaScript lenguaje que traduce el comportamiento de la pagina
+se registra la petición del documento con código 200 y la ruta inexistente con código 404.
+
