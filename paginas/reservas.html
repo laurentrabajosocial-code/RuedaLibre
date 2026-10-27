@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+
+    <a href="index.html">Volver al inicio</a>
+</head>
+<body>
+    <main>
+        
+         <section>
+            <h2>Formulario de reserva</h2>
+
+            <form action="#" method="get">
+                <p>
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre"
+                           required>
+                </p>
+
+                <p>
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo"
+                           required>
+                </p>
+
+                <p>
+                    <label for="bicicleta">Tipo de bicicleta:</label>
+                    <select id="bicicleta" name="bicicleta" required>
+                        <option value="">Selecciona una bicicleta</option>
+                        <option value="urbana">Bicicleta urbana</option>
+                        <option value="montana">Bicicleta de montaña</option>
+                        <option value="electrica">Bicicleta eléctrica</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="fecha">Fecha de reserva:</label>
+                    <input type="date" id="fecha" name="fecha"
+                           required>
+                </p>
+
+                <p>
+                    <label for="horario">Horario preferido:</label>
+                    <select id="horario" name="horario" required>
+                        <option value="">Selecciona un horario</option>
+                        <option value="manana">Mañana</option>
+                        <option value="tarde">Tarde</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="comentarios">Comentarios adicionales:</label>
+                    <textarea id="comentarios" name="comentarios"
+                              rows="4"></textarea>
+                </p>
+
+                <button type="submit">Enviar reserva</button>
+
+                <a href="mailto:info@ruedalibre.com" style="display: inline-block; padding: 0.5em 1em; border: 1px solid; text-decoration: none;">
+                Correo Electrónico
+            </a>
+            
+            </form>
+        </section>
+    </main>
+
+
+</body>
+</html>
