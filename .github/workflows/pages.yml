@@ -27,7 +27,11 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/v1.0 _site/v2.0
-          git archive v1.0 paginas | tar -x --strip-components=1 -C _site/v1.0
+          if git rev-parse --verify 'v1.0^{commit}' >/dev/null 2>&1; then
+            git archive v1.0 paginas | tar -x --strip-components=1 -C _site/v1.0
+          else
+            cp -R paginas/. _site/v1.0/
+          fi
           cp -R img _site/img
           cp -R paginas/. _site/
           cp -R paginas/. _site/v2.0/
