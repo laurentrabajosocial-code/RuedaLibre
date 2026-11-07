@@ -102,3 +102,62 @@ Prueba de teclado en Firefox:
   y horario, barra espaciadora para aceptar las políticas y Enter para enviar.
 - Resultado: el evento de envío se produjo con los datos válidos. El comentario
   vacío no impidió el envío. No se encontraron saltos de foco ilógicos.
+
+Avance actual del código y funciones de la página
+
+Página de inicio (index.html)
+- El documento de inicio está ubicado en la raíz del proyecto y enlaza las
+  páginas de tarifas y reservas.
+- Incluye navegación adaptable que se contrae en pantallas pequeñas, llamada a
+  reservar, presentación principal, carrusel de recorridos, información de la
+  empresa, tarjetas de servicios y beneficios, enlaces a tarifas y reservas,
+  contacto por correo y ubicación.
+- El carrusel ahora presenta tres imágenes de recorridos: Palmas, Parques del
+  Río y una imagen identificada en el texto alternativo como Cerro Volador.
+  Bootstrap Bundle gestiona sus controles.
+- Se agregaron imágenes locales para ampliar el material visual de bicicletas
+  y recorridos. Deben verificarse las imágenes y sus textos alternativos al
+  terminar de integrar el catálogo.
+
+Tarifas (paginas/tarifas.html)
+- Presenta tarifas de alquiler por tipo de bicicleta y duración, y precios,
+  distancia, duración y nivel de los recorridos guiados.
+- Las tablas tienen encabezados y descripciones accesibles, permiten
+  desplazamiento horizontal en pantallas angostas y ofrecen enlaces para
+  iniciar o consultar una reserva.
+- Incluye información sobre lo que se proporciona con el alquiler y qué llevar.
+
+Reservas (paginas/reservas.html y paginas/js/reservas.js)
+- El formulario conserva validación nativa para datos de contacto, fecha,
+  bicicleta, plan, cantidad, horario y aceptación de políticas.
+- JavaScript establece como fecha mínima el día local actual, muestra los
+  errores de validación y, si los datos son válidos, abre un modal con el
+  resumen de la solicitud.
+- La confirmación es una demostración: no guarda ni envía la reserva a un
+  servidor.
+
+Catálogo en desarrollo (catalogo.html)
+- Se inició un documento con recursos de Bootstrap, hoja de estilos compartida
+  y navegación adaptable.
+- Al momento de esta anotación solo está construida la cabecera; faltan el
+  contenido del catálogo, sus fichas de bicicletas y las interacciones
+  correspondientes. No se registra como una función terminada.
+
+Comparación del trabajo de CSS propio con Bootstrap
+
+| Área | Bootstrap | CSS propio (paginas/styless.css) |
+|---|---|---|
+| Estructura adaptable | Grilla responsive (`container`, `row`, `col-*`) y utilidades flex para distribuir contenido. | Ajustes específicos para la portada, pie de página y pantallas pequeñas; complementa la grilla, no la reemplaza. |
+| Navegación y componentes | Navbar colapsable, botones, tarjetas, carrusel, tablas, formulario y modal; sus interacciones usan Bootstrap Bundle. | Ajusta colores, tipografía, radios, sombras y estados para que los componentes mantengan la identidad de Rueda Libre. |
+| Formulario y tablas | Clases de formularios, validación visual, tablas y envoltura adaptable. | Personaliza el contraste, el foco, los mensajes de error, los bordes, fondos y espaciado de campos y tablas. |
+| Identidad y presentación | Proporciona componentes y estilos base reutilizables, no la apariencia particular de la marca. | Define variables de color, estilos de encabezados, portada, paneles, imágenes del carrusel, tarjetas y pie de página. |
+| Accesibilidad y movimiento | Ofrece componentes y utilidades que sirven de base; requiere marcado y atributos adecuados. | Añade enlace para saltar al contenido, foco visible, preferencias de movimiento reducido y ajustes visuales de estados interactivos. |
+
+Conclusión: la página no está hecha únicamente con Bootstrap ni únicamente
+con CSS propio. Bootstrap resuelve buena parte de la estructura responsive y
+los componentes funcionales; la hoja propia adapta esos componentes y define
+la apariencia de marca y los detalles específicos de la página. Ambos estilos
+se cargan en conjunto y algunas variables de Bootstrap se personalizan desde
+la hoja propia. Las pruebas de validación y teclado descritas arriba
+corresponden a las comprobaciones previamente registradas; esta actualización
+documenta el código revisado y no afirma nuevas pruebas en navegador.

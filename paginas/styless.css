@@ -1,12 +1,12 @@
 :root {
     color-scheme: light;
-    --brand-green: #145c43;
-    --brand-green-dark: #104832;
-    --brand-lime: #dcebdc;
+    --brand-green: #080d1a;
+    --brand-green-dark: #875dd6;
+    --brand-lime: #d3cbf7;
     --page-background: #f5f8f6;
     --surface: #fff;
-    --text-main: #20362e;
-    --text-muted: #52645a;
+    --text-main: #3d4d47;
+    --text-muted: #645652;
     --border: #dce7df;
     --bs-primary: var(--brand-green);
     --bs-primary-rgb: 20, 92, 67;
