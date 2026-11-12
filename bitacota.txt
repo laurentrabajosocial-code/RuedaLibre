@@ -161,3 +161,45 @@ se cargan en conjunto y algunas variables de Bootstrap se personalizan desde
 la hoja propia. Las pruebas de validación y teclado descritas arriba
 corresponden a las comprobaciones previamente registradas; esta actualización
 documenta el código revisado y no afirma nuevas pruebas en navegador.
+
+Sistema visual y herencia tipográfica (12/11/2026)
+- La hoja compartida declara cinco colores globales y documenta sus
+  combinaciones permitidas: texto/verde oscuro en fondos claros, fondo claro
+  sobre verdes y acento sobre verde oscuro; las sombras usan transparencias
+  derivadas de la paleta.
+- Se definieron variables globales para Montserrat y Open Sans con fuentes de
+  respaldo, más una escala de espaciado de 0.5rem, 1rem, 1.5rem, 2rem y 3rem.
+- En la inspección de estilos del navegador y valores calculados de un
+  párrafo de `.info-card`, se comprobó que `font-family` se hereda de `body`:
+  ambos calculan `"Open Sans", Arial, sans-serif`. El `color` también se
+  hereda (`rgb(32, 54, 46)`); `background-color` no se hereda: el párrafo
+  calcula transparente y `body` calcula `rgb(245, 248, 246)`.
+- Se revisaron todos los HTML del proyecto: no contienen atributos `style`
+  ni etiquetas `<style>`.
+
+Estados de navegación, llamadas a la acción y foco (12/11/2026)
+- La lista de navegación usa `id="menu"` en Inicio, Tarifas y Reservas; cada
+  documento marca su enlace actual con `class="activo"` y `aria-current="page"`.
+- Inspección en DevTools (Styles/Computed): la primera regla `.activo`
+  (especificidad 0-1-0) perdía frente a `.site-header .nav-link`
+  (0-2-0), que fijaba el texto en el color de fondo claro. Además,
+  `.navbar-nav .nav-link.active` (0-3-0) no coincidía, porque la clase
+  `activo` no es `active`. Un primer ajuste `#menu .activo` (1-1-0) superó
+  `.site-header .nav-link`, pero empató con `#menu .nav-link` (1-1-0),
+  declarado después, y el color aún quedaba en blanco. La regla final
+  `#menu .nav-link.activo` (1-2-0) supera ambos selectores; DevTools confirma
+  el color de acento calculado `rgb(220, 235, 220)`.
+- `#menu .nav-link` define los enlaces con un selector descendiente; `:hover`
+  y `:focus` (`#menu .nav-link:hover` / `#menu .nav-link:focus`, ambos
+  1-2-0) invierten a texto verde oscuro sobre fondo de acento y subrayan el
+  enlace. Las llamadas a reservar usan `.cta-reserva`, con apariencia de
+  botón y estados `:hover`, `:focus` y `:active` dentro del mapa de color.
+- Los campos del formulario reciben borde y contorno verde oscuro con anillo
+  de acento al enfocarse. Se probaron con Tab las tres páginas: Inicio (20
+  paradas), Tarifas (10) y Reservas (21); enlaces, botones y controles del
+  formulario muestran un indicador visible. El campo de fecha también usa
+  segmentos internos del navegador: al pasar el foco al control del calendario,
+  DevTools deja de reportar `:focus` para el input, pero su icono conserva el
+  indicador nativo visible (verificado en la captura del navegador).
+- Se inspeccionaron los estados hover y focus del menú y del botón de reserva
+  en el navegador; `git diff --check` no reportó errores.

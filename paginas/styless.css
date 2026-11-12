@@ -1,23 +1,33 @@
 :root {
     color-scheme: light;
-    --brand-green: #080d1a;
-    --brand-green-dark: #875dd6;
-    --brand-lime: #d3cbf7;
-    --page-background: #f5f8f6;
-    --surface: #fff;
-    --text-main: #3d4d47;
-    --text-muted: #645652;
-    --border: #dce7df;
-    --bs-primary: var(--brand-green);
-    --bs-primary-rgb: 20, 92, 67;
-    --bs-link-color: var(--brand-green);
-    --bs-link-hover-color: var(--brand-green-dark);
-    --bs-body-bg: var(--page-background);
-    --bs-body-color: var(--text-main);
-    --bs-border-color: var(--border);
-    font-family: "DM Sans", sans-serif;
+    --color-primary: #145c43;
+    --color-primary-dark: #104832;
+    --color-accent: #dcebdc;
+    --color-background: #f5f8f6;
+    --color-text: #20362e;
+    --font-heading: "Montserrat", "Arial", sans-serif;
+    --font-body: "Open Sans", "Arial", sans-serif;
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 3rem;
+    --bs-primary: var(--color-primary);
+    --bs-link-color: var(--color-primary);
+    --bs-link-hover-color: var(--color-primary-dark);
+    --bs-body-bg: var(--color-background);
+    --bs-body-color: var(--color-text);
+    --bs-border-color: var(--color-accent);
+    --bs-box-shadow-sm: 0 0.125rem 0.25rem color-mix(in srgb, var(--color-primary-dark) 15%, transparent);
+    --bs-box-shadow: 0 0.5rem 1rem color-mix(in srgb, var(--color-primary-dark) 15%, transparent);
 }
 
+/*
+ * Mapa de color: texto y verde oscuro sobre fondo o acento; fondo claro
+ * sobre verde primario u oscuro; acento sobre verde oscuro; verde primario
+ * como texto sobre fondo o acento. Sombras y velos usan transparencias
+ * derivadas de los verdes.
+ */
 *,
 *::before,
 *::after {
@@ -33,9 +43,10 @@ body {
     min-height: 100vh;
     flex-direction: column;
     margin: 0;
-    background: var(--page-background);
-    color: var(--text-main);
-    font-family: "DM Sans", sans-serif;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-weight: 400;
     line-height: 1.6;
 }
 
@@ -47,10 +58,12 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 .navbar-brand {
-    color: var(--brand-green-dark);
-    font-family: "Manrope", sans-serif;
-    font-weight: 800;
+    color: var(--color-primary-dark);
+    font-family: var(--font-heading);
+    font-weight: 700;
     line-height: 1.2;
 }
 
@@ -72,17 +85,18 @@ a:hover {
 
 a:focus-visible,
 button:focus-visible {
-    outline: 3px solid #fff;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 6px var(--brand-green);
+    outline: 3px solid var(--color-primary-dark);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--color-accent);
 }
 
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 .form-check-input:focus-visible {
-    outline: 3px solid var(--brand-green);
+    outline: 3px solid var(--color-primary-dark);
     outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--color-accent);
 }
 
 img {
@@ -97,9 +111,9 @@ img {
     padding: 0.65rem 1rem;
     transform: translateY(-160%);
     border-radius: 0.4rem;
-    background: var(--surface);
-    color: var(--brand-green-dark);
-    font-weight: 700;
+    background: var(--color-background);
+    color: var(--color-primary-dark);
+    font-weight: 600;
 }
 
 .skip-link:focus {
@@ -107,12 +121,38 @@ img {
 }
 
 .site-header {
-    background: var(--brand-green-dark);
+    background: var(--color-primary-dark);
 }
 
 .site-header .navbar-brand,
 .site-header .nav-link {
-    color: #fff;
+    color: var(--color-background);
+}
+
+#menu .nav-link.activo {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+}
+
+#menu .nav-link {
+    border-radius: 0.5rem;
+    color: var(--color-background);
+    transition: color 160ms ease, background-color 160ms ease;
+}
+
+#menu .nav-link:hover,
+#menu .nav-link:focus {
+    background: var(--color-accent);
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+#menu .nav-link:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
 }
 
 .site-header .navbar-brand {
@@ -120,18 +160,9 @@ img {
 }
 
 .site-header .navbar-brand:hover,
-.site-header .navbar-brand:focus-visible,
-.site-header .nav-link:hover,
-.site-header .nav-link:focus-visible {
-    color: #fff;
+.site-header .navbar-brand:focus-visible {
+    color: var(--color-background);
     text-decoration: underline;
-}
-
-.site-header .nav-link.active {
-    color: #fff;
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 0.35em;
 }
 
 .brand-logo {
@@ -140,33 +171,66 @@ img {
 }
 
 .btn {
-    --bs-btn-font-weight: 700;
+    --bs-btn-font-weight: 600;
     border-radius: 999px;
     text-decoration: none;
 }
 
 .btn-primary {
-    --bs-btn-bg: var(--brand-green);
-    --bs-btn-border-color: var(--brand-green);
-    --bs-btn-hover-bg: var(--brand-green-dark);
-    --bs-btn-hover-border-color: var(--brand-green-dark);
-    --bs-btn-active-bg: var(--brand-green-dark);
-    --bs-btn-active-border-color: var(--brand-green-dark);
-    --bs-btn-color: #fff;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-active-color: #fff;
+    --bs-btn-bg: var(--color-primary);
+    --bs-btn-border-color: var(--color-primary);
+    --bs-btn-hover-bg: var(--color-primary-dark);
+    --bs-btn-hover-border-color: var(--color-primary-dark);
+    --bs-btn-active-bg: var(--color-primary-dark);
+    --bs-btn-active-border-color: var(--color-primary-dark);
+    --bs-btn-color: var(--color-background);
+    --bs-btn-hover-color: var(--color-background);
+    --bs-btn-active-color: var(--color-background);
 }
 
 .btn-outline-primary {
-    --bs-btn-color: var(--brand-green);
-    --bs-btn-border-color: var(--brand-green);
-    --bs-btn-hover-bg: var(--brand-green);
-    --bs-btn-hover-border-color: var(--brand-green);
-    --bs-btn-hover-color: #fff;
+    --bs-btn-color: var(--color-primary);
+    --bs-btn-border-color: var(--color-primary);
+    --bs-btn-hover-bg: var(--color-primary);
+    --bs-btn-hover-border-color: var(--color-primary);
+    --bs-btn-hover-color: var(--color-background);
 }
 
-.site-header .btn-light {
-    color: var(--brand-green-dark);
+.cta-reserva {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: var(--color-background);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.cta-reserva:hover {
+    border-color: var(--color-primary-dark);
+    background: var(--color-primary-dark);
+    color: var(--color-background);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.cta-reserva:focus {
+    border-color: var(--color-primary-dark);
+    background: var(--color-primary-dark);
+    color: var(--color-background);
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--color-primary-dark);
+}
+
+.cta-reserva:active {
+    transform: translateY(1px);
+    border-color: var(--color-primary-dark);
+    background: var(--color-primary-dark);
+    color: var(--color-background);
 }
 
 .hero {
@@ -179,9 +243,9 @@ img {
     margin-left: auto;
     border-radius: 1.25rem;
     background:
-        linear-gradient(90deg, rgb(16 72 50 / 92%) 0%, rgb(16 72 50 / 72%) 52%, rgb(16 72 50 / 18%) 100%),
+        linear-gradient(90deg, color-mix(in srgb, var(--color-primary-dark) 92%, transparent) 0%, color-mix(in srgb, var(--color-primary-dark) 72%, transparent) 52%, color-mix(in srgb, var(--color-primary-dark) 18%, transparent) 100%),
         url("../img/Ruta.jpeg") center 48% / cover no-repeat;
-    color: #fff;
+    color: var(--color-background);
 }
 
 .hero-content {
@@ -191,7 +255,7 @@ img {
 
 .hero h1 {
     max-width: 13ch;
-    color: #fff;
+    color: var(--color-background);
 }
 
 .hero .lead {
@@ -200,15 +264,15 @@ img {
 
 .eyebrow {
     margin-bottom: 0.5rem;
-    color: var(--brand-green);
+    color: var(--color-primary);
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
 .hero .eyebrow {
-    color: #e4f2df;
+    color: var(--color-accent);
 }
 
 .section-heading,
@@ -225,7 +289,7 @@ img {
 .ride-carousel {
     overflow: hidden;
     border-radius: 1rem;
-    background: var(--brand-green-dark);
+    background: var(--color-primary-dark);
 }
 
 .ride-carousel img {
@@ -237,39 +301,39 @@ img {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 3rem 1rem 2rem;
-    background: linear-gradient(transparent, rgb(16 72 50 / 85%));
+    padding: var(--space-5) var(--space-2) var(--space-4);
+    background: linear-gradient(transparent, color-mix(in srgb, var(--color-primary-dark) 85%, transparent));
 }
 
 .ride-carousel .carousel-caption p {
-    color: #fff;
+    color: var(--color-background);
 }
 
 .info-card {
-    border: 1px solid var(--border);
+    border: 1px solid var(--color-accent);
     border-radius: 1rem;
-    background: var(--surface);
-    box-shadow: 0 0.35rem 1.25rem rgb(16 72 50 / 7%);
+    background: var(--color-background);
+    box-shadow: 0 0.35rem 1.25rem color-mix(in srgb, var(--color-primary-dark) 7%, transparent);
     transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
 .info-card:hover {
     transform: translateY(-0.2rem);
-    box-shadow: 0 0.65rem 1.5rem rgb(16 72 50 / 12%);
+    box-shadow: 0 0.65rem 1.5rem color-mix(in srgb, var(--color-primary-dark) 12%, transparent);
 }
 
 .info-card .card-title {
-    color: var(--brand-green-dark);
+    color: var(--color-primary-dark);
 }
 
 .card-icon {
     margin-bottom: 1rem;
-    color: var(--brand-green);
+    color: var(--color-primary);
     font-size: 2rem;
 }
 
 .card-link {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .page-content {
@@ -283,11 +347,15 @@ img {
 
 .content-panel,
 .notice-panel {
-    padding: clamp(1.25rem, 3vw, 2rem);
-    border: 1px solid var(--border);
+    padding: clamp(1.25rem, 3vw, var(--space-4));
+    border: 1px solid var(--color-accent);
     border-radius: 1rem;
-    background: var(--surface);
-    box-shadow: 0 0.35rem 1.25rem rgb(16 72 50 / 5%);
+    background: var(--color-background);
+    box-shadow: 0 0.35rem 1.25rem color-mix(in srgb, var(--color-primary-dark) 5%, transparent);
+}
+
+.cta-panel {
+    background: var(--color-accent);
 }
 
 .content-panel > :last-child,
@@ -296,33 +364,33 @@ img {
 }
 
 .table {
-    --bs-table-color: var(--text-main);
-    --bs-table-hover-bg: #edf5ef;
-    --bs-table-border-color: var(--border);
+    --bs-table-color: var(--color-text);
+    --bs-table-hover-bg: var(--color-accent);
+    --bs-table-border-color: var(--color-accent);
 }
 
 .table thead th {
-    background: var(--brand-lime);
-    color: var(--brand-green-dark);
+    background: var(--color-accent);
+    color: var(--color-primary-dark);
     white-space: nowrap;
 }
 
 .table caption {
-    color: var(--text-muted);
+    color: var(--color-primary-dark);
 }
 
 .notice-panel {
-    background: #edf5ef;
+    background: var(--color-accent);
 }
 
 .notice-panel h2 {
-    color: var(--brand-green-dark);
+    color: var(--color-primary-dark);
 }
 
 .form-section {
     margin: 1.75rem 0;
     padding: 1.25rem;
-    border: 1px solid var(--border);
+    border: 1px solid var(--color-accent);
     border-radius: 0.75rem;
 }
 
@@ -331,8 +399,8 @@ img {
     width: auto;
     margin: 0;
     padding: 0 0.5rem;
-    color: var(--brand-green-dark);
-    font-family: "Manrope", sans-serif;
+    color: var(--color-primary-dark);
+    font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 700;
 }
@@ -345,7 +413,7 @@ img {
 .form-control,
 .form-select {
     min-height: 2.9rem;
-    border-color: #71847a;
+    border-color: var(--color-primary-dark);
 }
 
 textarea.form-control {
@@ -355,41 +423,43 @@ textarea.form-control {
 .form-control:focus,
 .form-select:focus,
 .form-check-input:focus {
-    border-color: var(--brand-green);
-    box-shadow: 0 0 0 0.2rem rgb(20 92 67 / 20%);
+    border-color: var(--color-primary);
+    outline: 3px solid var(--color-primary-dark);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--color-accent);
 }
 
 .form-check-input:checked {
-    border-color: var(--brand-green);
-    background-color: var(--brand-green);
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
 }
 
 .form-text {
-    color: var(--text-muted);
+    color: var(--color-primary-dark);
 }
 
 .form-control.is-invalid,
 .was-validated .form-control:invalid,
 .form-select.is-invalid,
 .was-validated .form-select:invalid {
-    border-color: #a3212a;
+    border-color: var(--color-primary-dark);
 }
 
 .form-check-input.is-invalid,
 .was-validated .form-check-input:invalid {
-    border-color: #a3212a;
+    border-color: var(--color-primary-dark);
 }
 
 .invalid-feedback {
-    color: #8d1720;
+    color: var(--color-primary-dark);
     font-weight: 600;
 }
 
 .site-footer {
     margin-top: auto;
-    padding: 2.5rem 0;
-    background: var(--brand-green-dark);
-    color: #fff;
+    padding: var(--space-4) 0;
+    background: var(--color-primary-dark);
+    color: var(--color-background);
 }
 
 .footer-content {
@@ -397,24 +467,24 @@ textarea.form-control {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: var(--space-3);
 }
 
 .site-footer h2,
 .site-footer a {
-    color: #fff;
+    color: var(--color-background);
 }
 
 .site-footer address {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-2);
     font-style: normal;
 }
 
 .site-footer a:hover,
 .site-footer a:focus-visible {
-    color: #fff;
+    color: var(--color-accent);
 }
 
 @media (max-width: 575.98px) {
