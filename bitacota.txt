@@ -203,3 +203,47 @@ Estados de navegación, llamadas a la acción y foco (12/11/2026)
   indicador nativo visible (verificado en la captura del navegador).
 - Se inspeccionaron los estados hover y focus del menú y del botón de reserva
   en el navegador; `git diff --check` no reportó errores.
+
+Distribución con CSS Grid y Flexbox (13/11/2026)
+- Portada: Grid con columnas `1.15fr 0.85fr` para dar espacio proporcional al
+  texto y a la fotografía; `align-self: center` centra verticalmente el texto.
+  En móvil, las columnas se apilan para conservar el ancho legible.
+- Galería "Nuestras rutas": Grid con tres columnas iguales (`1fr`) en escritorio
+  para mostrar las tres tarjetas en una fila; se reduce a dos y luego a una
+  columna en pantallas estrechas.
+- Reservas: Grid con columnas `2fr 1fr` para asignar el doble de espacio al
+  formulario que al bloque de contacto; ambas columnas se apilan en móvil.
+- Fila de documento y celular: Grid con dos columnas iguales para mantener
+  juntos y alineados los dos campos relacionados.
+- Encabezado: Flexbox mediante el componente Navbar de Bootstrap, que alinea la
+  marca y los controles en un eje y permite contraer el menú en pantallas pequeñas.
+- Pie: Flexbox para distribuir marca, contacto, horario y derechos de autor en
+  una fila con salto de línea cuando el espacio disponible no alcanza.
+- Flota: Grid usa `repeat(auto-fit, minmax(min(100%, 13rem), 1fr))`, sin
+  media queries, para calcular automáticamente las columnas con un ancho
+  mínimo de 13rem por tarjeta. `gap: var(--space-3)` separa filas y columnas
+  de manera uniforme.
+- Tarjetas de flota: cada artículo organiza imagen, datos y enlace en columna
+  con Flexbox; `margin-top: auto` mantiene "Reservar" al final aunque cambie
+  la longitud de las descripciones.
+- Se muestran siete modelos; el Tándem se añadió con la descripción y el precio
+  solicitados. Su ficha usa una imagen genérica local porque no existe una foto
+  específica de tándem entre los recursos disponibles. Los precios por hora de
+  BMX y Gravel siguen la tarifa de montaña; el plegable, la urbana.
+- Prueba responsive en el navegador con siete tarjetas: a 1280 px se ven 4
+  columnas y 2 filas; a 900 px, 3 columnas y 3 filas; a 500 px, 2 columnas y
+  4 filas. Las siete imágenes cargan y los enlaces "Reservar" quedan alineados
+  al fondo de cada fila, sin cambios de CSS al añadir el séptimo artículo.
+- Las anchuras se comprobaron fijando el viewport CSS del navegador integrado;
+  se usan los mismos anchos que en el modo adaptable de DevTools, sin emular un
+  perfil de dispositivo específico. Al comparar temporalmente seis y siete
+  artículos sin cambiar CSS, las filas pasaron de 2 a 2 (1280 px), de 2 a 3
+  (900 px) y de 3 a 4 (500 px).
+
+Imágenes limitadas al ancho del contenedor (13/11/2026)
+- La hoja compartida `paginas/styless.css` ya incluye la regla global
+  `img { max-width: 100%; }`; por eso no fue necesario añadir CSS duplicado.
+- Se inspeccionaron los límites renderizados de cada imagen frente a su
+  contenedor en Inicio, Tarifas y Reservas a 1280, 900 y 500 px. Inicio mostró
+  12 imágenes y las otras páginas una cada una; no se detectó desbordamiento
+  en ninguno de los nueve escenarios de página y ancho.
