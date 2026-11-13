@@ -247,3 +247,16 @@ Imágenes limitadas al ancho del contenedor (13/11/2026)
   contenedor en Inicio, Tarifas y Reservas a 1280, 900 y 500 px. Inicio mostró
   12 imágenes y las otras páginas una cada una; no se detectó desbordamiento
   en ninguno de los nueve escenarios de página y ancho.
+
+Revisión de la limpieza de estilos propios (13/11/2026)
+- La bitácora documenta que Bootstrap aporta la grilla responsive `container`,
+  `row`, `col-*` y utilidades flex, mientras el CSS propio conserva ajustes
+  visuales y distribuciones particulares. También registra las reglas Grid y
+  Flexbox que implementan los requisitos de portada, rutas, flota y reservas.
+- Por ello, es correcto describir la limpieza como pendiente/parcial: aún hay
+  reglas de distribución propias en `paginas/styless.css`. Sin embargo, no se
+  debe afirmar que una regla duplica Bootstrap solo porque exista una utilidad
+  parecida; hace falta comparar su uso concreto en el HTML y su función. Por
+  ejemplo, `.footer-content` usa Flexbox propio, pero no aplica ahí una utilidad
+  Bootstrap equivalente. Las cuadrículas solicitadas explícitamente se
+  mantienen como CSS propio mientras no se acuerde sustituirlas.

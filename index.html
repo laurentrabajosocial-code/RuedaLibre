@@ -48,34 +48,88 @@
             </div>
         </section>
 
+        <section class="container py-4" aria-labelledby="promociones-inicio">
+            <div class="section-heading">
+                <p class="eyebrow">Aprovecha tu próxima salida</p>
+                <h2 id="promociones-inicio">Promociones para cada recorrido</h2>
+            </div>
+            <div id="carrusel-promociones" class="carousel slide promotions-carousel rounded-3 overflow-hidden" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover" aria-label="Promociones de Rueda Libre">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carrusel-promociones" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Mostrar promoción 1 de 3"></button>
+                    <button type="button" data-bs-target="#carrusel-promociones" data-bs-slide-to="1" aria-label="Mostrar promoción 2 de 3"></button>
+                    <button type="button" data-bs-target="#carrusel-promociones" data-bs-slide-to="2" aria-label="Mostrar promoción 3 de 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/UrbanaClasica.jpeg" class="d-block w-100 promotion-image" alt="Bicicleta urbana clásica para recorrer Medellín">
+                        <div class="carousel-caption promotion-caption">
+                            <h3 class="h2">Muévete por la ciudad</h3>
+                            <p>Recorre Medellín en una urbana clásica desde $10.000 por hora.</p>
+                            <a class="btn btn-outline-light" href="paginas/reservas.html">Reservar bicicleta</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/MontainTrain.jpeg" class="d-block w-100 promotion-image" alt="Bicicleta de montaña para caminos exigentes">
+                        <div class="carousel-caption promotion-caption">
+                            <h3 class="h2">Sal a buscar nuevas rutas</h3>
+                            <p>Elige una bicicleta de montaña desde $15.000 por hora.</p>
+                            <a class="btn btn-outline-light" href="paginas/reservas.html">Reservar bicicleta</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/ElectricaUrbana.jpeg" class="d-block w-100 promotion-image" alt="Bicicleta eléctrica urbana para llegar más lejos">
+                        <div class="carousel-caption promotion-caption">
+                            <h3 class="h2">Llega más lejos</h3>
+                            <p>Prueba la asistencia eléctrica por $25.000 la hora.</p>
+                            <a class="btn btn-outline-light" href="paginas/reservas.html">Reservar bicicleta</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-promociones" data-bs-slide="prev" aria-label="Promoción anterior">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Promoción anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carrusel-promociones" data-bs-slide="next" aria-label="Promoción siguiente">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Promoción siguiente</span>
+                </button>
+            </div>
+        </section>
+
         <section class="container py-5" aria-labelledby="nuestras-rutas">
             <div class="section-heading">
                 <p class="eyebrow">Rueda Libre</p>
                 <h2 id="nuestras-rutas">Nuestras rutas</h2>
                 <p>Elige tu próxima aventura y descubre Medellín sobre dos ruedas.</p>
             </div>
-            <div class="routes-grid">
-                <article class="route-card">
-                    <img src="img/palmas.jpeg" alt="Paisaje de la ruta de Las Palmas">
-                    <div class="route-card-content">
-                        <h3>Ruta Palmas</h3>
-                        <p>Un recorrido para disfrutar las montañas y las vistas del valle.</p>
-                    </div>
-                </article>
-                <article class="route-card">
-                    <img src="img/ParquesdelRio.jpeg" alt="Recorrido junto a Parques del Río en Medellín">
-                    <div class="route-card-content">
-                        <h3>Parques del Río</h3>
-                        <p>Pedalea entre zonas verdes y espacios urbanos junto al río.</p>
-                    </div>
-                </article>
-                <article class="route-card">
-                    <img src="img/Barrio.jpeg" alt="Recorrido en bicicleta por un barrio de Medellín">
-                    <div class="route-card-content">
-                        <h3>Ruta Barrio</h3>
-                        <p>Explora las calles y los rincones cotidianos de la ciudad.</p>
-                    </div>
-                </article>
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <article class="card route-card h-100">
+                        <img class="card-img-top route-card-image" src="img/palmas.jpeg" alt="Paisaje de la ruta de Las Palmas">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Ruta Palmas</h3>
+                            <p class="card-text">Un recorrido para disfrutar las montañas y las vistas del valle.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-4">
+                    <article class="card route-card h-100">
+                        <img class="card-img-top route-card-image" src="img/ParquesdelRio.jpeg" alt="Recorrido junto a Parques del Río en Medellín">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Parques del Río</h3>
+                            <p class="card-text">Pedalea entre zonas verdes y espacios urbanos junto al río.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-4">
+                    <article class="card route-card h-100">
+                        <img class="card-img-top route-card-image" src="img/Barrio.jpeg" alt="Recorrido en bicicleta por un barrio de Medellín">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Ruta Barrio</h3>
+                            <p class="card-text">Explora las calles y los rincones cotidianos de la ciudad.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -85,68 +139,68 @@
                 <h2 id="nuestra-flota">Nuestra flota</h2>
                 <p>Modelos para recorrer Medellín a tu propio ritmo.</p>
             </div>
-            <div class="fleet-grid">
-                <article class="fleet-card">
-                    <img src="img/UrbanaClasica.jpeg" alt="Bicicleta urbana clásica" loading="lazy">
-                    <div class="fleet-card-content">
-                        <h3>Urbana clásica</h3>
-                        <p>Comodidad y control para moverte por la ciudad.</p>
-                        <p class="fleet-price">$10.000 <span>/ hora</span></p>
-                        <a class="fleet-reserve" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <div class="row fleet-grid">
+                <article class="col card fleet-card h-100">
+                    <img class="card-img-top fleet-card-image" src="img/UrbanaClasica.jpeg" alt="Bicicleta urbana clásica" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5">Urbana clásica</h3>
+                        <p class="card-text">Comodidad y control para moverte por la ciudad.</p>
+                        <p class="fleet-price fs-5 fw-bold">$10.000 <span class="fs-6 fw-normal">/ hora</span></p>
+                        <a class="btn btn-outline-primary mt-auto align-self-start" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="fleet-card">
-                    <img src="img/MontainTrain.jpeg" alt="Bicicleta para recorridos de montaña" loading="lazy">
-                    <div class="fleet-card-content">
-                        <h3>Montaña Trail</h3>
-                        <p>Suspensión y agarre para caminos exigentes.</p>
-                        <p class="fleet-price">$15.000 <span>/ hora</span></p>
-                        <a class="fleet-reserve" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <article class="col card fleet-card h-100">
+                    <img class="card-img-top fleet-card-image" src="img/MontainTrain.jpeg" alt="Bicicleta para recorridos de montaña" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5">Montaña Trail</h3>
+                        <p class="card-text">Suspensión y agarre para caminos exigentes.</p>
+                        <p class="fleet-price fs-5 fw-bold">$15.000 <span class="fs-6 fw-normal">/ hora</span></p>
+                        <a class="btn btn-outline-primary mt-auto align-self-start" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="fleet-card">
-                    <img src="img/ElectricaUrbana.jpeg" alt="Bicicleta eléctrica urbana" loading="lazy">
-                    <div class="fleet-card-content">
-                        <h3>Eléctrica urbana</h3>
-                        <p>Asistencia eléctrica para llegar más lejos con menos esfuerzo.</p>
-                        <p class="fleet-price">$25.000 <span>/ hora</span></p>
-                        <a class="fleet-reserve" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <article class="col card fleet-card h-100">
+                    <img class="card-img-top fleet-card-image" src="img/ElectricaUrbana.jpeg" alt="Bicicleta eléctrica urbana" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5">Eléctrica urbana</h3>
+                        <p class="card-text">Asistencia eléctrica para llegar más lejos con menos esfuerzo.</p>
+                        <p class="fleet-price fs-5 fw-bold">$25.000 <span class="fs-6 fw-normal">/ hora</span></p>
+                        <a class="btn btn-outline-primary mt-auto align-self-start" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="fleet-card">
-                    <img src="img/GravelAventura.jpeg" alt="Bicicleta gravel para aventura" loading="lazy">
-                    <div class="fleet-card-content">
-                        <h3>Gravel aventura</h3>
-                        <p>Ligera y versátil para combinar asfalto y caminos destapados.</p>
-                        <p class="fleet-price">$15.000 <span>/ hora</span></p>
-                        <a class="fleet-reserve" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <article class="col card fleet-card h-100">
+                    <img class="card-img-top fleet-card-image" src="img/GravelAventura.jpeg" alt="Bicicleta gravel para aventura" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5">Gravel aventura</h3>
+                        <p class="card-text">Ligera y versátil para combinar asfalto y caminos destapados.</p>
+                        <p class="fleet-price fs-5 fw-bold">$15.000 <span class="fs-6 fw-normal">/ hora</span></p>
+                        <a class="btn btn-outline-primary mt-auto align-self-start" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="fleet-card">
-                    <img src="img/BMX.jpeg" alt="Bicicleta BMX" loading="lazy">
-                    <div class="fleet-card-content">
-                        <h3>BMX</h3>
-                        <p>Compacta y resistente para practicar trucos y maniobras.</p>
-                        <p class="fleet-price">$15.000 <span>/ hora</span></p>
-                        <a class="fleet-reserve" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <article class="col card fleet-card h-100">
+                    <img class="card-img-top fleet-card-image" src="img/BMX.jpeg" alt="Bicicleta BMX" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5">BMX</h3>
+                        <p class="card-text">Compacta y resistente para practicar trucos y maniobras.</p>
+                        <p class="fleet-price fs-5 fw-bold">$15.000 <span class="fs-6 fw-normal">/ hora</span></p>
+                        <a class="btn btn-outline-primary mt-auto align-self-start" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="fleet-card">
-                    <img src="img/plegable.jpeg" alt="Bicicleta plegable" loading="lazy">
-                    <div class="fleet-card-content">
-                        <h3>Plegable</h3>
-                        <p>Práctica para combinar la bicicleta con otros medios de transporte.</p>
-                        <p class="fleet-price">$10.000 <span>/ hora</span></p>
-                        <a class="fleet-reserve" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <article class="col card fleet-card h-100">
+                    <img class="card-img-top fleet-card-image" src="img/plegable.jpeg" alt="Bicicleta plegable" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5">Plegable</h3>
+                        <p class="card-text">Práctica para combinar la bicicleta con otros medios de transporte.</p>
+                        <p class="fleet-price fs-5 fw-bold">$10.000 <span class="fs-6 fw-normal">/ hora</span></p>
+                        <a class="btn btn-outline-primary mt-auto align-self-start" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="fleet-card">
-                    <img src="img/Bicicleta.jpeg" alt="Bicicleta de alquiler" loading="lazy">
-                    <div class="fleet-card-content">
-                        <h3>Tándem</h3>
-                        <p>Para dos personas; perfecta para pasear en pareja.</p>
-                        <p class="fleet-price">$20.000 <span>/ hora</span></p>
-                        <a class="fleet-reserve" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                <article class="col card fleet-card h-100">
+                    <img class="card-img-top fleet-card-image" src="img/Bicicleta.jpeg" alt="Bicicleta de alquiler" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5">Tándem</h3>
+                        <p class="card-text">Para dos personas; perfecta para pasear en pareja.</p>
+                        <p class="fleet-price fs-5 fw-bold">$20.000 <span class="fs-6 fw-normal">/ hora</span></p>
+                        <a class="btn btn-outline-primary mt-auto align-self-start" href="paginas/reservas.html">Reservar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
             </div>
@@ -190,7 +244,7 @@
                             <ul class="card-text">
                                 <li>Bicicletas de calidad y mantenimiento regular</li>
                                 <li>Precios competitivos y planes flexibles</li>
-                                <li>Atención amigable y profesional</li>
+                                <li>Guías certificados y puntos de devolución en tres sedes</li>
                             </ul>
                         </div>
                     </article>
@@ -230,26 +284,28 @@
                     <h2 id="viaje-a-tu-ritmo" class="h3 fw-bold">La ciudad está lista para ti</h2>
                     <p class="mb-0">Elige tu bicicleta, encuentra tu recorrido y disfruta el camino.</p>
                 </div>
-                <a class="btn btn-primary btn-lg cta-reserva flex-shrink-0" href="paginas/reservas.html">Empezar mi reserva</a>
+                <a class="btn btn-lg btn-naranja-pedal flex-shrink-0" href="paginas/reservas.html">Empezar mi reserva</a>
             </div>
         </section>
     </main>
-
+<a class="whatsapp-link btn btn-success btn-lg position-fixed bottom-0 end-0 m-3 z-3" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" aria-label="Contactar con Rueda Libre por WhatsApp"><img src="img/WhatsApp.jpeg" width="24" height="24" alt="" aria-hidden="true"> WhatsApp</a>
     <footer class="site-footer" id="contacto">
-        <div class="container footer-content">
-            <div>
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-12 col-sm-6 col-lg-3">
                 <h2 class="h4">Rueda Libre</h2>
                 <p class="mb-0">Pedalea Medellín a tu manera.</p>
             </div>
-            <address class="footer-contact mb-0">
+            <address class="col-12 col-sm-6 col-lg-3 footer-contact mb-0 d-flex flex-column gap-2">
                 <a href="mailto:info@ruedalibre.com"><i class="bi bi-envelope" aria-hidden="true"></i> info@ruedalibre.com</a>
                 <a href="https://www.google.com/maps/search/?api=1&amp;query=Cl.%2076D%20Sur%2047b-40%2C%20Sabaneta%2C%20Antioquia" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt" aria-hidden="true"></i> Encuéntranos en Sabaneta</a>
             </address>
-            <div class="footer-hours">
+            <div class="col-12 col-sm-6 col-lg-3">
                 <strong>Horario</strong>
                 <p class="mb-0">Lunes a sábado · 7 a. m. a 7 p. m.<br>Domingo · 7 a. m. a 2 p. m.</p>
             </div>
-            <p class="mb-0 small">© 2026 Rueda Libre</p>
+            <p class="col-12 col-sm-6 col-lg-3 mb-0 small">© 2026 Rueda Libre</p>
+            </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
