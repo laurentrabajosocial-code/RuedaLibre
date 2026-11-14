@@ -580,9 +580,7 @@ textarea.form-control {
     }
 }
 
-.whatsapp-link img {
-    margin-right: 0.5rem;
-    border-radius: 50%;
-    object-fit: cover;
+.bi-whatsapp {                                                  
+    color: rgb(252, 249, 252);
+    font-size: 1.5rem;
 }
-
